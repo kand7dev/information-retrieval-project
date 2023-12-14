@@ -1,5 +1,5 @@
 import string
-from nltk import word_tokenize, corpus, PorterStemmer
+from nltk import word_tokenize, corpus, PorterStemmer, WordNetLemmatizer
 
 
 def abstract_tokenize(abstract):
@@ -30,5 +30,13 @@ def stemmer(tokens):
         stemmed_tokens.append(porter.stem(token))
         
     return stemmed_tokens
+
+
+def lemmatizer(tokens):
     
+    wordnet_lemmatizer = WordNetLemmatizer()
+    lemmatized_tokens = list()
+    for token in tokens:
+        lemmatized_tokens.append(wordnet_lemmatizer.lemmatize(token))
     
+    return lemmatized_tokens
