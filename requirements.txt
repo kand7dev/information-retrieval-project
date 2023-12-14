@@ -1,0 +1,5 @@
+nltk
+nltkdata
+beautifulsoup4
+requests
+matplotlib
