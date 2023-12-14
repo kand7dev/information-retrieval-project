@@ -1,2 +1,5 @@
-# information-retrieval-project
-Πρότζεκτ Ανάκτησης Πληροφορίας
+# Πρότζεκτ Ανάκτησης Πληροφορίας
+
+### Maintainers:
+- kand7dev
+- kostiskaz
