@@ -21,3 +21,14 @@ def abstract_tokenize(abstract):
     
     return final_tokens
 
+
+def stemmer(tokens):
+    
+    porter = PorterStemmer()
+    stemmed_tokens = list()
+    for token in tokens:
+        stemmed_tokens.append(porter.stem(token))
+        
+    return stemmed_tokens
+    
+    
