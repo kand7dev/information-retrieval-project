@@ -3,3 +3,4 @@ nltkdata
 beautifulsoup4
 requests
 matplotlib
+lxml
