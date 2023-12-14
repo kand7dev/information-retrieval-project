@@ -31,6 +31,6 @@ def crawler(url):
         # convert dict to JSON
         json_object = json.dumps(paper_dict)
         return json_object
-    
-    
+
+
 
