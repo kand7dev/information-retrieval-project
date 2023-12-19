@@ -161,3 +161,6 @@ cython_debug/
 
 # .json object
 data.json
+
+# .vs folder
+.vs/
