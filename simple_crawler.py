@@ -38,8 +38,8 @@ def crawler():
                     
                     # creating json object (must be a dictionary to use json.dumps)
                     paper_dict= dict(paper_id = id, paper_title = title, paper_authors = authors_list, paper_abstract = tokenized_abstract, paper_submission_date = submission )
-                    json_object = json.dumps(paper_dict)
-                    json_object_list.append(json_object)
+                    # = json.dump(paper_dict)
+                    json_object_list.append(paper_dict)
                     authors_list.clear()
                     id+=1
 
