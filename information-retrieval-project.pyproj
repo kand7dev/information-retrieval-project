@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="download-nltk.py" />
+    <Compile Include="json_reader.py" />
     <Compile Include="simple_crawler.py" />
     <Compile Include="text_processing.py" />
   </ItemGroup>

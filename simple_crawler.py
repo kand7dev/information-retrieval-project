@@ -53,4 +53,6 @@ def crawler():
         json.dump(json_object_list,output, indent=2)
     
     return json_object_list
-crawler()
+
+# run crawler()
+# crawler()
