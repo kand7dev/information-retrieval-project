@@ -7,7 +7,7 @@ def main():
         
         index = indexing.inverted_index()
         for key, value in index.items():
-            print(f"{key} found in Documents {value}")
+            print(f" '{key}' found in Documents {value}")
 
 
 if __name__ == "__main__":
