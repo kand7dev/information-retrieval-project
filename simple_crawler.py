@@ -4,7 +4,6 @@ import json
 import text_processing
 import random_word
 
-
 def crawler():
     random = random_word.RandomWords()
     json_object_list = list()
@@ -52,7 +51,8 @@ def crawler():
     # save data to .json file       
     with open("data.json","w") as output:
         json.dump(json_object_list,output, indent=2)
-        return True
     
-    return False
+    return json_object_list
 
+# run crawler()
+# crawler()
