@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{fa018b78-19d7-424e-a559-e367dd8b691b}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>simple_crawler.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -23,7 +23,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="download-nltk.py" />
+    <Compile Include="indexing.py" />
     <Compile Include="json_reader.py" />
+    <Compile Include="main.py" />
     <Compile Include="simple_crawler.py" />
     <Compile Include="text_processing.py" />
   </ItemGroup>
