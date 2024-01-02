@@ -15,7 +15,7 @@ def main():
         for key, value in word_level_index.items():
             coordinates, times = value
             print(f"Key -> {key} , Found At -> {coordinates} , Total Times -> {times}")
-           
+            
             
         # Verbose Output (uncomment to see)
 
