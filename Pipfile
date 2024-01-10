@@ -10,6 +10,7 @@ beautifulsoup4 = "*"
 requests = "*"
 matplotlib = "*"
 random-word = "*"
+pipenv = "*"
 
 [dev-packages]
 
