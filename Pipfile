@@ -11,6 +11,8 @@ requests = "*"
 matplotlib = "*"
 random-word = "*"
 pipenv = "*"
+scikit-learn = "*"
+rank-bm25 = "*"
 
 [dev-packages]
 
