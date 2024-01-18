@@ -65,14 +65,18 @@ def vector_space_model(query, tokenized_data, plain_data):
     
     tokenized_query = word_tokenize(query.lower())
     preprocessed_query = ' '.join(tokenized_query)
+    
     tfidf_vectorizer = TfidfVectorizer()
     result = list()
     
     for index, document in enumerate(tokenized_data):
+        
         preprocessed_documents = ' '.join(document['paper_abstract'])
+        
         tfidf_matrix = tfidf_vectorizer.fit_transform([preprocessed_documents])
         query_vector = tfidf_vectorizer.transform([preprocessed_query])
         cosine_similarities = cosine_similarity(query_vector, tfidf_matrix)
+        
         result.append((plain_data[index]['paper_id'], cosine_similarities[0][0]))
         
     return result
