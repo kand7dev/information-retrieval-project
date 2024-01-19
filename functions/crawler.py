@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
-import random_word
-import json_save
+from random_word import RandomWords
+from functions import json_save
 
 def crawler(num_of_words=5):
     
-    random = random_word.RandomWords()
+    random = RandomWords()
     json_object_list = list()
     id = 1
     
@@ -45,7 +45,14 @@ def crawler(num_of_words=5):
             except AttributeError:
                 
                 continue
-                
-    if (json_save.save("data.json", json_object_list)):
+    
+    if (json_object_list) :
+
+        json_save.save("data/data.json", json_object_list)
         
         return 1
+    
+    else:
+        
+        return 0
+
