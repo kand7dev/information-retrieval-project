@@ -1,5 +1,5 @@
-import json_reader
-import text_processing
+from functions import json_reader
+from functions import text_processing
 from datetime import datetime
 
 
@@ -7,9 +7,8 @@ def tokenizer(data_file):
     
     tokenized_data_list = list()
     tokenized_authors_list = list()
-    data = json_reader.reader(data_file)
     
-    for document in data:
+    for document in data_file:
         
         tokenized_data = dict()
         tokenized_data['paper_id'] = document['paper_id']
