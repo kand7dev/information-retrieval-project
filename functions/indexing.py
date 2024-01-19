@@ -1,5 +1,3 @@
-import json_reader
-
 
 def record_level_inverted_index(tokenized_data):
     
