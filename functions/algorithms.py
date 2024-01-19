@@ -5,14 +5,17 @@ from rank_bm25 import BM25Okapi
 
 def boolean_retrieval(query, tokenized_data, record_index):
     
-    query_tokens = query.strip().split()
+    query_tokens = query.lower().strip().split()
     operations = ["and", "or", "not"]
     final_result = set()
     number_of_documents = [i+1 for i in range(len(tokenized_data))]
     
-    try:
+    for index in range(len(query_tokens)):
         
-        for index in range(query_tokens):
+        try :
+            
+            if len(query_tokens) == 1:
+                final_result = set(record_index[query_tokens[0]])
             
             if query_tokens[index] not in operations:
                 continue
@@ -54,12 +57,10 @@ def boolean_retrieval(query, tokenized_data, record_index):
                     else:
                         final_result = final_result.union(set(record_index[next_token]))
                         
-        return final_result
-    
-    except KeyError:
-        
-        return set()
-    
+        except KeyError:
+            final_result = set()
+                        
+    return final_result    
 
 def vector_space_model(query, tokenized_data, plain_data):
     
