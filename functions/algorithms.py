@@ -59,6 +59,9 @@ def boolean_retrieval(query, tokenized_data, record_index):
                         
         except KeyError:
             final_result = set()
+        
+        except IndexError:
+            final_result = set()
                         
     return final_result    
 
