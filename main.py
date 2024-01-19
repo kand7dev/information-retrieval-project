@@ -35,6 +35,7 @@ while 1:
                 algo = 0
                 while algo == 0:
                     try: 
+                        
                         algo = int(input("Enter an option: "))
                         match algo:
                             
@@ -133,6 +134,7 @@ while 1:
                                 inverted_index = indexing.record_level_inverted_index(tokenized_data)
                                 print("Enter your Boolean query")
                                 print("Query must start with a word. Single word is accepted. In case of using multiple words, each word must be separated by a boolean operator (AND/OR/NOT)") 
+                                print("and|or|not are considered stopwords, hence they can not be used as a search term!")
                                 query = input("Query : ")
                                 result = algorithms.boolean_retrieval(query, tokenized_data, inverted_index)
                                 clear()
