@@ -18,12 +18,14 @@ def crawler(num_of_words=5):
         if html_respone.ok:
             
             try:
+                
                 soup = BeautifulSoup(html_respone.content,"html.parser") 
                 
                 html_titles = soup.find_all("p", class_="title is-5 mathjax")
                 html_authors = soup.find_all("p", class_="authors")
                 html_submissions = soup.select("p.is-size-7:not(.comments)")
                 html_abstracts = soup.find_all("span", class_="abstract-full has-text-grey-dark mathjax")
+                
                 authors_list = list() # is used to store all authors, gets re-initialized in each iteration
                 
                 for i in range(len(html_titles)):
@@ -39,6 +41,7 @@ def crawler(num_of_words=5):
                     paper_dict= dict(paper_id = id, paper_title = title, paper_authors = authors_list.copy(), paper_abstract = abstract, paper_submission_date = submission )
                     json_object_list.append(paper_dict)
                     id+=1
+                    
                     authors_list.clear()
                     del paper_dict
 

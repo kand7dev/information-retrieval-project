@@ -14,6 +14,7 @@ def tokenizer(data_file):
         
         authors_list = list()
         for author in document['paper_authors']:
+            
             authors_list.append(author.lower())
             
         tokenized_data['paper_authors'] = authors_list.copy()
