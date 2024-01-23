@@ -34,8 +34,8 @@ while 1:
                 print("4) Previous Page\n")
                 algo = 0
                 while algo == 0:
-                    try: 
-                        
+                    try:
+                   
                         algo = int(input("Enter an option: "))
                         match algo:
                             

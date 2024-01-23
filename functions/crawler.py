@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from random_word import RandomWords
-from functions import json_save
+from . import json_save
 
 def crawler(num_of_words=5):
     
