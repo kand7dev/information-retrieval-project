@@ -2,17 +2,18 @@ from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from rank_bm25 import BM25Okapi
+from . import text_processing
 
 def boolean_retrieval(query, tokenized_data, record_index):
     
-    query_tokens = query.strip().split()
+    query_tokens = text_processing.query_processing(query, True)
     operations = ["and", "or", "not"]
     final_result = set()
     number_of_documents = [i+1 for i in range(len(tokenized_data))]
     
     try:
         
-        for index in range(query_tokens):
+        for index in range(len(query_tokens)):
             
             if query_tokens[index] not in operations:
                 continue
@@ -63,7 +64,7 @@ def boolean_retrieval(query, tokenized_data, record_index):
 
 def vector_space_model(query, tokenized_data, plain_data):
     
-    tokenized_query = word_tokenize(query.lower())
+    tokenized_query = text_processing.query_processing(query, False)
     preprocessed_query = ' '.join(tokenized_query)
     
     tfidf_vectorizer = TfidfVectorizer()
@@ -83,7 +84,7 @@ def vector_space_model(query, tokenized_data, plain_data):
 
 def okapi_bm25(query, tokenized_data):
     
-    tokenized_query = query.split(" ")
+    tokenized_query = text_processing.query_processing(query, False)
     all_documents = list()
     
     for document in tokenized_data:
