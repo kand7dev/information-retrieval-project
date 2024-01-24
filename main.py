@@ -1,4 +1,6 @@
 import os
+import random
+import time
 from datetime import datetime
 
 import numpy as np
@@ -50,6 +52,32 @@ while 1:
                                     "\nQuery must start with a word. Single word is accepted. In case of using multiple words, each word must be separated by a boolean operator (AND/OR/NOT)\n"
                                 )
                                 query = input("Query : ")
+                                if query == "":
+                                    clear()
+                                    print(
+                                        "Your given query is empty! Returning a random and interesting paper..."
+                                    )
+                                    time.sleep(2)
+                                    clear()
+                                    random_id = random.randint(0, len(data))
+                                    random_paper = data[random_id]
+                                    print("-" * 100)
+                                    print(
+                                        f"\nPaper Title: {random_paper['paper_title']}"
+                                    )
+                                    print(
+                                        f"Paper Authors: {', '.join(random_paper['paper_authors'])}\n"
+                                    )
+                                    print(f"\n{random_paper['paper_abstract']}\n")
+                                    print(
+                                        f"\nSubmitted: {random_paper['paper_submission_date']}"
+                                    )
+                                    print(
+                                        "-" * 100,
+                                    )
+                                    input("\n")
+                                    break
+
                                 result = algorithms.boolean_retrieval(
                                     query, tokenized_data, inverted_index
                                 )
@@ -265,6 +293,31 @@ while 1:
                                 print("**** Enter your query ****")
                                 print("\nA query can consist of any ammount of words\n")
                                 query = input("Query : ")
+                                if query == "":
+                                    clear()
+                                    print(
+                                        "Your given query is empty! Returning a random and interesting paper..."
+                                    )
+                                    time.sleep(2)
+                                    clear()
+                                    random_id = random.randint(0, len(data))
+                                    random_paper = data[random_id]
+                                    print("-" * 100)
+                                    print(
+                                        f"\nPaper Title: {random_paper['paper_title']}"
+                                    )
+                                    print(
+                                        f"Paper Authors: {', '.join(random_paper['paper_authors'])}\n"
+                                    )
+                                    print(f"\n{random_paper['paper_abstract']}\n")
+                                    print(
+                                        f"\nSubmitted: {random_paper['paper_submission_date']}"
+                                    )
+                                    print(
+                                        "-" * 100,
+                                    )
+                                    input("\n")
+                                    break
                                 results = sorted(
                                     algorithms.vector_space_model(
                                         query, tokenized_data, data
@@ -519,6 +572,31 @@ while 1:
                                 print("**** Enter your query ****")
                                 print("\nA query can consist of any ammount of words\n")
                                 query = input("Query : ")
+                                if query == "":
+                                    clear()
+                                    print(
+                                        "Your given query is empty! Returning a random and interesting paper..."
+                                    )
+                                    time.sleep(2)
+                                    clear()
+                                    random_id = random.randint(0, len(data))
+                                    random_paper = data[random_id]
+                                    print("-" * 100)
+                                    print(
+                                        f"\nPaper Title: {random_paper['paper_title']}"
+                                    )
+                                    print(
+                                        f"Paper Authors: {', '.join(random_paper['paper_authors'])}\n"
+                                    )
+                                    print(f"\n{random_paper['paper_abstract']}\n")
+                                    print(
+                                        f"\nSubmitted: {random_paper['paper_submission_date']}"
+                                    )
+                                    print(
+                                        "-" * 100,
+                                    )
+                                    input("\n")
+                                    break
                                 results = algorithms.okapi_bm25(query, tokenized_data)
                                 sorted_results = -np.sort(-results)
                                 check_results = [
