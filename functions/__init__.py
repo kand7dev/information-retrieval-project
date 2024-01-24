@@ -1,3 +1,3 @@
-# from .download_nltk import downloader
+from .download_nltk import downloader
 
-# downloader()
+downloader()
