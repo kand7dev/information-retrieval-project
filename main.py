@@ -18,6 +18,11 @@ elif os.name == "nt":
         return os.system("cls")
 
 
+data = json_reader.reader("data/data.json")
+tokenized_data = data_tokenizer.tokenizer(data)
+inverted_index = indexing.record_level_inverted_index(tokenized_data)
+
+
 print("*" * 8, "Starting Search Engine", "*" * 8)
 print("\nWelcome to our Custom Search Engine!\n")
 
@@ -31,9 +36,6 @@ while 1:
         option = int(input("\nEnter an option : "))
         match option:
             case 1:
-                data = json_reader.reader("data/data.json")
-                tokenized_data = data_tokenizer.tokenizer(data)
-                inverted_index = indexing.record_level_inverted_index(tokenized_data)
                 clear()
                 print("\n**** Select an Algorithm ****\n")
                 print("1) Boolean Retrieval")
@@ -864,9 +866,13 @@ while 1:
                         )
                         print("Starting Scraping...\n")
                         if crawler.crawler(num_words):
-                            input(
-                                "Scraped successfully!\nPress any key to continue...\n"
+                            print("Rebuilding database\n")
+                            data = json_reader.reader("data/data.json")
+                            tokenized_data = data_tokenizer.tokenizer(data)
+                            inverted_index = indexing.record_level_inverted_index(
+                                tokenized_data
                             )
+                            input("Finished!\nPress any key to continue...\n")
                             clear()
                         else:
                             print("Data not Found. Retry")
