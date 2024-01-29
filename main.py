@@ -859,7 +859,7 @@ while 1:
                 user_data = input("Enter you desired words (separated by a ',') : ")
                 if not user_data:
                     print(
-                        "User input is empty...\nWe're going to generate random words"
+                        "User input is empty...\nWe're going to generate random words!"
                     )
                 if crawler.crawler(user_data):
                     print("Rebuilding database\n")
