@@ -856,34 +856,23 @@ while 1:
                         algo = 0
 
             case 2:
-                num_words = 0
-                while num_words == 0:
-                    try:
-                        num_words = int(
-                            input(
-                                "Enter number of words to generate and search for in arXiv (integer) :  "
-                            )
-                        )
-                        print("Starting Scraping...\n")
-                        if crawler.crawler(num_words):
-                            print("Rebuilding database\n")
-                            data = json_reader.reader("data/data.json")
-                            tokenized_data = data_tokenizer.tokenizer(data)
-                            inverted_index = indexing.record_level_inverted_index(
-                                tokenized_data
-                            )
-                            input("Finished!\nPress any key to continue...\n")
-                            clear()
-                        else:
-                            print("Data not Found. Retry")
-                            num_words = 0
-                            continue
-
-                    except ValueError:
-                        clear()
-                        print("Enter An Integer!")
-                        num_words = 0
-
+                user_data = input("Enter you desired words (separated by a ',') : ")
+                if not user_data:
+                    print(
+                        "User input is empty...\nWe're going to generate random words"
+                    )
+                if crawler.crawler(user_data):
+                    print("Rebuilding database\n")
+                    data = json_reader.reader("data/data.json")
+                    tokenized_data = data_tokenizer.tokenizer(data)
+                    inverted_index = indexing.record_level_inverted_index(
+                        tokenized_data
+                    )
+                    input("Finished!\nPress any key to continue...\n")
+                    clear()
+                else:
+                    input("Data not Found.\nPress any key to continue...\n")
+                    continue
             case 3:
                 break
 
