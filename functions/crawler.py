@@ -5,20 +5,32 @@ from random_word import RandomWords
 from . import json_save
 
 
-def crawler(num_of_words=5):
+def crawler(user_input, num_of_words=10):
     random = RandomWords()
     json_object_list = list()
     id = 1
-
-    for i in range(num_of_words):
-        word = random.get_random_word()
-        url = url = (
-            "https://arxiv.org/search/?query="
-            + str(word)
-            + "&searchtype=all&source=header"
-        )
+    urls_list = list()
+    if not user_input:
+        for i in range(num_of_words):
+            word = random.get_random_word()
+            url = (
+                "https://arxiv.org/search/?query="
+                + str(word)
+                + "&searchtype=all&source=header"
+            )
+            urls_list.append(url)
+    else:
+        words = user_input.lower().split(sep=",")
+        for word in words:
+            norm_word = word.lower().strip()
+            url = (
+                "https://arxiv.org/search/?query="
+                + str(norm_word)
+                + "&searchtype=all&source=header"
+            )
+            urls_list.append(url)
+    for url in urls_list:
         html_respone = requests.get(url)
-
         if html_respone.ok:
             try:
                 soup = BeautifulSoup(html_respone.content, "html.parser")
@@ -43,7 +55,8 @@ def crawler(num_of_words=5):
                     submission = (
                         html_submissions[i]
                         .find(
-                            "span", class_="has-text-black-bis has-text-weight-semibold"
+                            "span",
+                            class_="has-text-black-bis has-text-weight-semibold",
                         )
                         .nextSibling.text.strip()
                         .removesuffix(";")
@@ -70,7 +83,6 @@ def crawler(num_of_words=5):
 
     if json_object_list:
         json_save.save("data/data.json", json_object_list)
-
         return 1
 
     else:
