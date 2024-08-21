@@ -2,5 +2,6 @@ import nltk
 
 
 def downloader():
-    nltk.download("book")
+    nltk.download('punkt_tab')
+    nltk.download('book')
     return 1
