@@ -13,7 +13,7 @@ This project implements a small scientific articles search engine. For now it pr
     2. By date of publishment
 
 ## How can I run this project?
-1. Users can install the `requirements.txt` in their local environment and execute the `main.py` script.
+1. Users can install the `requirements.txt` in their local environment and execute the `main.py` script. This script automatically downloads all the important `nltk data` in users `$HOME` directory.
 2. Users can use the containerized version of the application from my [docker repository](https://hub.docker.com/repository/docker/kand7dev99/kand7dev-projects/general) by pulling the `information_retrieval` tag.
 
 ## Contributions and Improvements
