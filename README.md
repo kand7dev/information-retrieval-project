@@ -5,12 +5,12 @@ This project implements a small scientific articles search engine. For now it pr
 1. It can scrape new data from [arxiv](https://arxiv.org/) or use existing data provided in this repository.
 2. Processes data (tokenizing, lemmatizing/stemming, creates an inverted index).
 3. Supports 3 searching algorithms:
-  1. Boolean Retrieval
-  2. Vector Space Model
-  3. Okapi BM25
+    1. Boolean Retrieval
+    2. Vector Space Model
+    3. Okapi BM25
 4. Users can put basic filters while searching for documents:
-  1. By author name
-  2. By date of publishment
+    1. By author name
+    2. By date of publishment
 
 ## How can I run this project?
 1. Users can install the `requirements.txt` in their local environment and execute the `main.py` script.
