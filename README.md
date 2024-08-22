@@ -17,6 +17,6 @@ This project implements a small scientific articles search engine. For now it pr
 2. Users can use the containerized version of the application from my [docker repository](https://hub.docker.com/repository/docker/kand7dev99/kand7dev-projects/general) by pulling the `information_retrieval` tag.
 
 ## Contributions and Improvements
-If someone would like to contribute to the project or suggest improvements, they can offer a PR or open an Issue. 
+If someone would like to contribute to the project or suggest improvements, they can submit a PR or open an Issue. 
 
 
